@@ -32,7 +32,7 @@ module.exports = function (RED) {
     client.on('birth', () => {
       node.log('收到 birth 事件');
       deviceSet.forEach(deviceId => {
-        sparkplugClient.publishDeviceBirth(deviceId, { timestamp: Date.now() });
+        client.publishDeviceBirth(deviceId, { timestamp: Date.now() });
         node.log(`发布了设备 ${deviceId} 的 device birth 消息`)
       });
     });
