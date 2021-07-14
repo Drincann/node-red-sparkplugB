@@ -15,6 +15,7 @@
     }
   },
   "dependencies": {
+    "sparkplug-client": "^3.2.2",
     "sparkplug-payload": "^1.0.1"
   }
 }

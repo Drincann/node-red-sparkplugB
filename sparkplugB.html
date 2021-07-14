@@ -1,15 +1,53 @@
 <script type="text/javascript">
-    RED.nodes.registerType('sparkplugB', {
-        category: 'function',
-        color: '#a6bbcf',
-        defaults: {
-            name: { value: "" }
-        },
-        inputs: 1,
-        outputs: 1,
-        // icon: "file.png",
-        label: function () {
-            return this.name || "sparkplugB";
-        }
-    });
+  RED.nodes.registerType('sparkplugB', {
+    category: 'function',
+    color: '#a6bbcf',
+    defaults: {
+      name: { value: "" },
+      serverUrl: { value: "mqtt://localhost", required: true },
+      port: { value: "1883", required: true },
+      clientId: { value: 'client1', required: true },
+      groupId: { value: 'group1', required: true },
+      edgeNode: { value: 'edgeNode1', required: true },
+      username: { value: "" },
+      password: { value: "" }
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "bridge.png",
+    label: function () {
+      return this.name || "sparkplugB";
+    }
+  });
+</script>
+
+<script type="text/html" data-template-name="sparkplugB">
+<div class="form-row">
+    <label for="node-input-serverUrl" title="The URL of the MQTT server"><i class="fa fa-globe"></i> Server</label>
+    <input type="text" id="node-input-serverUrl" placeholder="Server URL">
+</div>
+<div class="form-row">
+    <label for="node-input-port" title="The port of the MQTT server"><i class="fa fa-globe"></i> Port</label>
+    <input type="text" id="node-input-port" placeholder="Server Port" style="width:45px">
+</div>
+<div class="form-row">
+    <label for="node-input-username" title="The username for the MQTT server connection"><i class="fa fa-user"></i> Username</label>
+    <input type="text" id="node-input-username" placeholder="Username">
+</div>
+<div class="form-row">
+    <label for="node-input-password" title="The password for the MQTT server connection"><i class="fa fa-lock"></i> Password</label>
+    <input type="password" id="node-input-password" placeholder="Password">
+</div>
+<div class="form-row">
+    <label for="node-input-clientId" title="A unique client ID for the MQTT server connection"><i class="fa fa-tag"></i> Client ID</label>
+    <input type="text" id="node-input-clientId" placeholder="Client ID">
+</div>
+<div class="form-row">
+    <label for="node-input-groupId" title="An ID representing a logical grouping of MQTT EoN Nodes and Devices into the infrastructure"><i class="fa fa-tag"></i> Group ID</label>
+    <input type="text" id="node-input-groupId" placeholder="Group ID">
+</div>
+<div class="form-row">
+    <label for="node-input-edgeNode" title="An ID that uniquely identifies the MQTT EoN Node within the infrastructure"><i class="fa fa-tag"></i> Edge Node</label>
+    <input type="text" id="node-input-edgeNode" placeholder="Edge Node">
+</div>
 </script>
