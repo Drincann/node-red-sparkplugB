@@ -47,7 +47,7 @@ module.exports = function (RED) {
 
     // 发送 ddata ddeath dbirth 消息，input
     node.on('input', function (msg) {
-      const { diviceId, messageType, payload } = msg;
+      const { deviceId, messageType, payload } = msg;
       if (messageType == 'DDATA') {
         client.publishDeviceData(deviceId, payload);
         node.log(`发布了设备 ${deviceId} 的 device data 消息`)
@@ -58,7 +58,7 @@ module.exports = function (RED) {
           node.log(`发布了设备 ${deviceId} 的 device birth 消息`)
         }
       } else if (messageType == 'DDEATH') {
-        deviceSet.delete(diviceId);
+        deviceSet.delete(deviceId);
       }
     });
 
